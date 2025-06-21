@@ -453,12 +453,12 @@ function showIngredientsModal(dessertTitle) {
 function closeIngredientsModal() {
   document.getElementById('ingredients-modal').style.display = 'none';
   document.body.classList.remove('blur');
-  // Re-enable body scrolling
+  
   document.body.classList.remove('modal-open');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Add click handlers for all dessert cards
+ 
   document.querySelectorAll('.dessert-card').forEach(card => {
     const title = card.querySelector('h4').textContent;
     const description = card.querySelector('p').textContent;
