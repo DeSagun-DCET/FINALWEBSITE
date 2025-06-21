@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Balance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="507048910_704902125509840_5943798320241838522_n-removebg-preview.png" type="image/png">
+</head>
+<body>
+
+  <div class="navbar">
+    Sweet Balance
+  </div>
+  <div class="blur-overlay"></div>
+  
+  <div class="container">
+    <button class="button" onclick="openModal('low', this)">Low Sugar</button>
+    <button class="button" onclick="openModal('normal', this)">Normal Sugar</button>
+    <button class="button" onclick="openModal('high', this)">High Sugar</button>
+  </div>
+
+  <!-- Sugar Level Modals -->
+  <div id="modal-low" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>This option is suitable for those who prefer a reduced sugar intake for dietary or health reasons.</p>
+      <button class="close-button" onclick="closeModal('low'); showSideModal()">Got it!</button>
+    </div>
+  </div>
+
+  <div id="modal-normal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>This is a standard sugar level for general preferences and balanced taste.</p>
+      <button class="close-button" onclick="closeModal('normal'); showSideModal()">Got it!</button>
+    </div>
+  </div>
+
+  <div id="modal-high" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>Perfect for those who enjoy a sweeter experience in their choices.</p>
+      <button class="close-button" onclick="closeModal('high'); showSideModal()">Got it!</button>
+    </div>
+  </div>
+
+  <!-- Side Modal -->
+  <div id="side-modal" class="side-modal" style="display: none;">
+    <h3>Choose a Dessert</h3>
+    <p id="selected-level">You selected: </p>
+    <p>Select one of the following options:</p>
+    <button class="option-button" onclick="openDessertModal('cheesecake')">Cheesecake</button>
+    <button class="option-button" onclick="openDessertModal('cake')">Cake</button>
+    <button class="option-button" onclick="openDessertModal('icecream')">Ice Cream</button>
+    <button class="option-button" onclick="openDessertModal('chocolate')">Chocolate</button>
+    <button class="close-button" onclick="closeSideModal()">Close</button>
+  </div>
+
+  <!-- Cheesecake Modal -->
+  <div id="dessert-modal-cheesecake" class="dessert-modal" style="display: none;">
+    <div class="dessert-modal-content">
+        <h3 id="cheesecake-title">Cheesecake Options</h3>
+        <div class="dessert-scroll-container">
+            <div class="low-sugar-options">
+                <div class="dessert-card">
+                    <h4>Berry Delight</h4>
+                    <p>Made with sugar alternatives and fresh berries</p>
+                    <p>Calories: 180 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Berry Delight')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Lemon Zest</h4>
+                    <p>Tangy lemon flavor with almond flour crust</p>
+                    <p>Calories: 160 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Lemon Zest')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Pumpkin Spice</h4>
+                    <p>Seasonal favorite with natural sweetness</p>
+                    <p>Calories: 190 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Pumpkin Spice')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="normal-sugar-options">
+                <div class="dessert-card">
+                    <h4>New York Classic</h4>
+                    <p>Rich and creamy traditional cheesecake</p>
+                    <p>Calories: 350 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('New York Classic')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Chocolate Swirl</h4>
+                    <p>Vanilla cheesecake with chocolate marbling</p>
+                    <p>Calories: 320 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Chocolate Swirl')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Strawberry Shortcake</h4>
+                    <p>Cheesecake with fresh strawberries and glaze</p>
+                    <p>Calories: 300 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Strawberry Shortcake')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="high-sugar-options">
+                <div class="dessert-card">
+                    <h4>Triple Chocolate</h4>
+                    <p>White, milk, and dark chocolate layered cheesecake</p>
+                    <p>Calories: 420 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Triple Chocolate')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Salted Caramel</h4>
+                    <p>Rich cheesecake with caramel swirl and sea salt</p>
+                    <p>Calories: 380 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Salted Caramel')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Cookie Dough</h4>
+                    <p>Cheesecake stuffed with cookie dough pieces</p>
+                    <p>Calories: 400 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Cookie Dough')">Show Ingredients</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Cake Modal -->
+  <div id="dessert-modal-cake" class="dessert-modal" style="display: none;">
+    <div class="dessert-modal-content">
+        <h3 id="cake-title">Cake Options</h3>
+        <div class="dessert-scroll-container">
+            <div class="low-sugar-options">
+                <div class="dessert-card">
+                    <h4>Angel Food</h4>
+                    <p>Light and airy with fresh berries</p>
+                    <p>Calories: 120 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Angel Food')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Flourless Chocolate</h4>
+                    <p>Rich dark chocolate with almond meal</p>
+                    <p>Calories: 150 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Flourless Chocolate')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Carrot Cake</h4>
+                    <p>Made with natural sweeteners and walnuts</p>
+                    <p>Calories: 140 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Carrot Cake')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="normal-sugar-options">
+                <div class="dessert-card">
+                    <h4>Red Velvet</h4>
+                    <p>Classic red velvet with cream cheese frosting</p>
+                    <p>Calories: 280 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Red Velvet')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Chocolate Fudge</h4>
+                    <p>Moist chocolate cake with rich fudge frosting</p>
+                    <p>Calories: 320 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Chocolate Fudge')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Vanilla Bean</h4>
+                    <p>Light vanilla cake with buttercream frosting</p>
+                    <p>Calories: 250 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Vanilla Bean')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="high-sugar-options">
+                <div class="dessert-card">
+                    <h4>Triple Chocolate Fudge</h4>
+                    <p>Three layers of chocolate cake with fudge filling</p>
+                    <p>Calories: 450 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Triple Chocolate Fudge')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Birthday Cake</h4>
+                    <p>Funfetti cake with rainbow sprinkles and frosting</p>
+                    <p>Calories: 380 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('Birthday Cake')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>German Chocolate</h4>
+                    <p>Rich chocolate cake with coconut-pecan frosting</p>
+                    <p>Calories: 420 per slice</p>
+                    <button class="action-button" onclick="showIngredientsModal('German Chocolate')">Show Ingredients</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Ice Cream Modal -->
+  <div id="dessert-modal-icecream" class="dessert-modal" style="display: none;">
+    <div class="dessert-modal-content">
+        <h3 id="icecream-title">Ice Cream Options</h3>
+        <div class="dessert-scroll-container">
+            <div class="low-sugar-options">
+                <div class="dessert-card">
+                    <h4>Vanilla Bean</h4>
+                    <p>Sweetened with monk fruit extract</p>
+                    <p>Calories: 90 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Vanilla Bean')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Strawberry Sorbet</h4>
+                    <p>Dairy-free with natural fruit sweetness</p>
+                    <p>Calories: 80 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Strawberry Sorbet')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Dark Chocolate</h4>
+                    <p>85% cocoa with stevia</p>
+                    <p>Calories: 100 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Dark Chocolate')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="normal-sugar-options">
+                <div class="dessert-card">
+                    <h4>Cookies & Cream</h4>
+                    <p>Vanilla ice cream with cookie pieces</p>
+                    <p>Calories: 180 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Cookies & Cream')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Mint Chocolate Chip</h4>
+                    <p>Mint flavored ice cream with chocolate chunks</p>
+                    <p>Calories: 170 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Mint Chocolate Chip')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Rocky Road</h4>
+                    <p>Chocolate ice cream with nuts and marshmallows</p>
+                    <p>Calories: 200 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Rocky Road')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="high-sugar-options">
+                <div class="dessert-card">
+                    <h4>Caramel Brownie</h4>
+                    <p>Vanilla ice cream with caramel swirl and brownie chunks</p>
+                    <p>Calories: 280 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Caramel Brownie')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Cookie Dough</h4>
+                    <p>Vanilla ice cream with cookie dough pieces</p>
+                    <p>Calories: 260 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Cookie Dough')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Peanut Butter Cup</h4>
+                    <p>Chocolate ice cream with peanut butter cups</p>
+                    <p>Calories: 300 per scoop</p>
+                    <button class="action-button" onclick="showIngredientsModal('Peanut Butter Cup')">Show Ingredients</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Chocolate Modal -->
+  <div id="dessert-modal-chocolate" class="dessert-modal" style="display: none;">
+    <div class="dessert-modal-content">
+        <h3 id="chocolate-title">Chocolate Options</h3>
+        <div class="dessert-scroll-container">
+            <div class="low-sugar-options">
+                <div class="dessert-card">
+                    <h4>85% Dark</h4>
+                    <p>Intense cocoa flavor with minimal sugar</p>
+                    <p>Calories: 150 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('85% Dark')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Coconut Almond</h4>
+                    <p>Dark chocolate with coconut and almonds</p>
+                    <p>Calories: 160 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Coconut Almond')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Peppermint Bark</h4>
+                    <p>Sugar-free dark chocolate with peppermint</p>
+                    <p>Calories: 140 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Peppermint Bark')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="normal-sugar-options">
+                <div class="dessert-card">
+                    <h4>Milk Chocolate</h4>
+                    <p>Creamy classic milk chocolate</p>
+                    <p>Calories: 220 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Milk Chocolate')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Hazelnut Praline</h4>
+                    <p>Milk chocolate with hazelnut pieces</p>
+                    <p>Calories: 240 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Hazelnut Praline')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Caramel Sea Salt</h4>
+                    <p>Dark chocolate with caramel and sea salt</p>
+                    <p>Calories: 210 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Caramel Sea Salt')">Show Ingredients</button>
+                </div>
+            </div>
+            <div class="high-sugar-options">
+                <div class="dessert-card">
+                    <h4>White Chocolate Raspberry</h4>
+                    <p>White chocolate with raspberry filling</p>
+                    <p>Calories: 280 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('White Chocolate Raspberry')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Double Caramel</h4>
+                    <p>Milk chocolate with caramel and toffee pieces</p>
+                    <p>Calories: 300 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Double Caramel')">Show Ingredients</button>
+                </div>
+                <div class="dessert-card">
+                    <h4>Cookies & Cream</h4>
+                    <p>White chocolate with cookie pieces</p>
+                    <p>Calories: 270 per bar</p>
+                    <button class="action-button" onclick="showIngredientsModal('Cookies & Cream')">Show Ingredients</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Cheesecake Details Modal -->
+  <div id="cheesecake-details-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h3 id="cheesecake-details-title">Cheesecake Details</h3>
+        <div id="cheesecake-details-content">
+            <!-- Content will be inserted here by JavaScript -->
+        </div>
+        <button class="close-button" onclick="closeDetailsModal('cheesecake')">Close</button>
+    </div>
+  </div>
+
+  <!-- Ingredients Pie Chart Modal -->
+  <div id="ingredients-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <h3 id="ingredients-title">Ingredients Breakdown</h3>
+        <div class="pie-chart-container">
+            <div class="pie-chart" id="pie-chart"></div>
+            <ul class="chart-legend" id="chart-legend"></ul>
+        </div>
+        <button class="close-button" onclick="closeIngredientsModal()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>
