@@ -95,7 +95,6 @@ function openDessertModal(type) {
 
 function getIngredientsForDessert(title) {
   const ingredientsMap = {
-    // Cheesecakes
     'Berry Delight': [
       { name: 'Cream Cheese', percentage: 30 },
       { name: 'Berries', percentage: 25 },
@@ -118,7 +117,6 @@ function getIngredientsForDessert(title) {
       { name: 'Eggs', percentage: 10 }
     ],
     
-    // Cakes
     'Angel Food': [
       { name: 'Egg Whites', percentage: 40 },
       { name: 'Flour', percentage: 30 },
@@ -139,7 +137,6 @@ function getIngredientsForDessert(title) {
       { name: 'Spices', percentage: 15 }
     ],
     
-    // Ice Cream
     'Vanilla Bean': [
       { name: 'Cream', percentage: 50 },
       { name: 'Milk', percentage: 30 },
@@ -158,7 +155,6 @@ function getIngredientsForDessert(title) {
       { name: 'Sugar Substitute', percentage: 10 }
     ],
     
-    // Chocolate
     '85% Dark': [
       { name: 'Cocoa', percentage: 85 },
       { name: 'Cocoa Butter', percentage: 10 },
@@ -175,7 +171,7 @@ function getIngredientsForDessert(title) {
       { name: 'Peppermint Oil', percentage: 20 },
       { name: 'Sugar Substitute', percentage: 10 }
     ],
-    // Cheesecakes - Normal Sugar
+  
     'New York Classic': [
       { name: 'Cream Cheese', percentage: 40 },
       { name: 'Sugar', percentage: 25 },
@@ -198,7 +194,6 @@ function getIngredientsForDessert(title) {
       { name: 'Eggs', percentage: 5 }
     ],
     
-    // Cakes - Normal Sugar
     'Red Velvet': [
       { name: 'Flour', percentage: 30 },
       { name: 'Sugar', percentage: 25 },
@@ -221,7 +216,6 @@ function getIngredientsForDessert(title) {
       { name: 'Vanilla', percentage: 5 }
     ],
     
-    // Ice Cream - Normal Sugar
     'Cookies & Cream': [
       { name: 'Cream', percentage: 50 },
       { name: 'Milk', percentage: 25 },
@@ -243,7 +237,6 @@ function getIngredientsForDessert(title) {
       { name: 'Marshmallows', percentage: 10 }
     ],
     
-    // Chocolate - Normal Sugar
     'Milk Chocolate': [
       { name: 'Cocoa Butter', percentage: 40 },
       { name: 'Sugar', percentage: 35 },
@@ -262,8 +255,7 @@ function getIngredientsForDessert(title) {
       { name: 'Sugar', percentage: 15 },
       { name: 'Sea Salt', percentage: 10 }
     ],
-    // Add these to the ingredientsMap in getIngredientsForDessert function
-// High Sugar Cheesecakes
+  
 'Triple Chocolate': [
     { name: 'Cream Cheese', percentage: 30 },
     { name: 'White Chocolate', percentage: 20 },
@@ -286,7 +278,6 @@ function getIngredientsForDessert(title) {
     { name: 'Eggs', percentage: 5 }
 ],
 
-// High Sugar Cakes
 'Triple Chocolate Fudge': [
     { name: 'Chocolate Cake', percentage: 40 },
     { name: 'Fudge', percentage: 30 },
@@ -306,7 +297,6 @@ function getIngredientsForDessert(title) {
     { name: 'Eggs', percentage: 5 }
 ],
 
-// High Sugar Ice Cream
 'Caramel Brownie': [
     { name: 'Vanilla Ice Cream', percentage: 50 },
     { name: 'Caramel', percentage: 20 },
@@ -324,7 +314,6 @@ function getIngredientsForDessert(title) {
     { name: 'Sugar', percentage: 10 }
 ],
 
-// High Sugar Chocolate
 'White Chocolate Raspberry': [
     { name: 'White Chocolate', percentage: 70 },
     { name: 'Raspberry Filling', percentage: 20 },
@@ -360,7 +349,6 @@ function showDessertDetails(title, description, calories, type = 'cheesecake') {
   let modal = document.getElementById(modalId);
   
   if (!modal) {
-    // Create modal if it doesn't exist
     modal = document.createElement('div');
     modal.id = modalId;
     modal.className = 'modal';
@@ -380,8 +368,6 @@ function showDessertDetails(title, description, calories, type = 'cheesecake') {
   titleElement.textContent = title;
   
   const ingredients = getIngredientsForDessert(title);
-  
-  // Always show ingredients button for low sugar options
   const showIngredientsBtn = currentSugarLevel === 'low' ? 
     `<button class="action-button" onclick="showIngredientsModal('${title.replace(/'/g, "\\'")}')">
       Show Ingredients
@@ -413,24 +399,20 @@ function showIngredientsModal(dessertTitle) {
   const titleElement = document.getElementById('ingredients-title');
   const pieChart = document.getElementById('pie-chart');
   const legend = document.getElementById('chart-legend');
-  
-  // First hide all other modals
+
   document.querySelectorAll('.modal').forEach(m => {
     if (m.id !== 'ingredients-modal') {
       m.style.display = 'none';
     }
   });
   
-  // Prevent body scrolling
   document.body.classList.add('modal-open');
   
   titleElement.textContent = `${dessertTitle} Ingredients`;
-  
-  // Clear previous chart
+
   pieChart.innerHTML = '';
   legend.innerHTML = '';
   
-  // Color palette
   const colors = [
     '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', 
     '#9966FF', '#FF9F40', '#8AC24A', '#FF5722',
@@ -444,7 +426,6 @@ function showIngredientsModal(dessertTitle) {
     const color = colors[index % colors.length];
     const rotation = cumulativePercent * 3.6;
     
-    // Create pie slice
     const slice = document.createElement('div');
     slice.className = 'pie-slice';
     slice.style.background = `conic-gradient(
@@ -455,7 +436,6 @@ function showIngredientsModal(dessertTitle) {
     
     pieChart.appendChild(slice);
     
-    // Create legend item
     const legendItem = document.createElement('li');
     legendItem.innerHTML = `
       <span class="legend-color" style="background-color: ${color}"></span>
@@ -477,7 +457,6 @@ function closeIngredientsModal() {
   document.body.classList.remove('modal-open');
 }
 
-// Initialize dessert card click handlers
 document.addEventListener('DOMContentLoaded', function() {
   // Add click handlers for all dessert cards
   document.querySelectorAll('.dessert-card').forEach(card => {
@@ -485,7 +464,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const description = card.querySelector('p').textContent;
     const calories = card.querySelectorAll('p')[1].textContent;
     
-    // Determine dessert type from parent modal
     let type = 'cheesecake';
     let parent = card.closest('[id^="dessert-modal-"]');
     if (parent) {
