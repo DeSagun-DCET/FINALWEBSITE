@@ -1,4 +1,3 @@
-/* Base Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -13,8 +12,8 @@ body {
     font-size: 1.5rem;
     background: url('navbar.png') center/cover no-repeat;
     padding: 1rem;
-    position: relative; /* For overlay positioning */
-    z-index: 1; /* Ensure text stays above the background */
+    position: relative; 
+    z-index: 1; 
 }
 
 .container {
@@ -24,13 +23,13 @@ body {
     justify-content: center;
     height: calc(100vh - 70px);
     background: url('container (1).png') center/cover no-repeat;
-    position: relative; /* For overlay positioning */
+    position: relative;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 1;
-    min-height: 100%; /* Ensure it covers full viewport height */
-    width: 100%; /* Ensure full width */ /* Optional - creates parallax effect */
+    min-height: 100%;
+    width: 100%; 
     
     position: relative;
     z-index: 1;
@@ -63,7 +62,7 @@ body {
     opacity: 0.4;
 }
 
-/* Modal Base Styles */
+
 .modal {
     display: none;
     position: fixed;
@@ -86,7 +85,7 @@ body {
     text-align: center;
 }
 
-/* Ingredients Modal - Specific Styles */
+
 #ingredients-modal {
     display: none;
     position: fixed;
@@ -95,7 +94,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2000; /* Higher than other modals */
+    z-index: 2000; 
     overflow: auto;
 }
 
@@ -113,7 +112,7 @@ body {
 
 #ingredients-modal .modal-content {
     background-color: white;
-    margin: 5% auto; /* Changed from 0 to auto with top margin */
+    margin: 5% auto; 
     padding: 25px;
     border-radius: 10px;
     width: 90%;
@@ -121,10 +120,10 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     animation: modalAppear 0.3s ease-out;
-    position: relative; /* Added for better positioning */
+    position: relative; 
 }
 
-/* Side Modal */
+
 .side-modal {
     display: none;
     position: fixed;
@@ -133,7 +132,7 @@ body {
     width: 280px;
     height: 90%;
     background-color: #ffffffee;
-    background-image: url('left side modal.png'); /* Replace with your image path */
+    background-image: url('left side modal.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -158,7 +157,7 @@ body {
     font-size: 1rem;
 }
 
-/* Dessert Modals */
+
 .dessert-modal {
     display: none;
     position: fixed;
@@ -234,7 +233,7 @@ body {
     border-radius: 10px;
 }
 
-/* Dessert Cards */
+
 .dessert-card {
     min-width: 250px;
     background: white;
@@ -262,7 +261,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Sugar Level Options */
+
 .low-sugar-options,
 .normal-sugar-options,
 .high-sugar-options {
@@ -271,7 +270,7 @@ body {
     gap: 20px;
 }
 
-/* Action Buttons */
+
 .action-button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -296,7 +295,7 @@ body {
     cursor: pointer;
 }
 
-/* Pie Chart Styles */
+
 .pie-chart-container {
     display: flex;
     flex-direction: column;
@@ -353,7 +352,7 @@ body {
     flex-shrink: 0;
 }
 
-/* Blur Overlay */
+
 .blur-overlay {
     position: fixed;
     z-index: 500;
@@ -367,12 +366,12 @@ body.blur .blur-overlay {
     display: block;
 }
 
-/* Cheesecake Details Modal */
+
 #cheesecake-details-modal {
     z-index: 1200;
 }
 
-/* Animations */
+
 @keyframes modalAppear {
     from {
         transform: scale(0.95);
@@ -384,7 +383,7 @@ body.blur .blur-overlay {
     }
 }
 
-/* Body scroll prevention */
+
 body.modal-open {
     overflow: hidden;
 }
